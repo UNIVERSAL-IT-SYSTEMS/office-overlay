@@ -89,10 +89,4 @@ src_install() {
 			> "${D}"/etc/env.d/99opencollada || die
 
 	dobin build/bin/OpenCOLLADAValidator || die
-
-	local l
-	cd "${D}"/usr/$(get_libdir)/opencollada || die
-	for l in lib{Open,Gen}*.so; do
-		dosym opencollada/${l} /usr/$(get_libdir)/${l}
-	done
 }
