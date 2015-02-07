@@ -1,36 +1,51 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/opencollada/opencollada-0_p864-r1.ebuild,v 1.4 2012/12/01 18:32:28 blueness Exp $
+# $Header: $
 
-EAPI="3"
+EAPI=5
 
-inherit eutils multilib cmake-utils
+if [[ ${PV} == *9999* ]] ; then
+	SCM_ECLASS="git-r3"
+else
+	SCM_ECLASS="vcs-snapshot"
+fi
+
+inherit eutils multilib cmake-utils ${SCM_ECLASS}
 
 DESCRIPTION="Stream based read/write library for COLLADA files"
 HOMEPAGE="http://www.opencollada.org/"
-SRC_URI="http://www.hartwork.org/public/${P}.tar.xz"
-
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64 ppc64 ~x86"
 IUSE="expat"
 
+if [[ ${PV} != *9999* ]]; then
+	#
+	# UPDATE THE COMMIT WHEN BUMPING!
+	COMMIT="ceb409cabdccda3000aa2e5c065850b8fde60b0f"
+	#
+	SRC_URI="https://github.com/KhronosGroup/OpenCOLLADA/tarball/${COMMIT} -> ${P}.tar.gz"
+	KEYWORDS="~amd64 ~ppc64 ~x86"
+else
+	EGIT_REPO_URI="http://github.com/KhronosGroup/OpenCOLLADA.git"
+fi
+
 RDEPEND="dev-libs/libpcre
-	expat? ( dev-libs/expat )
-	!expat? ( dev-libs/libxml2 )
+	dev-libs/zziplib
 	media-libs/lib3ds
 	sys-libs/zlib
-	dev-libs/zziplib"
+	>=sys-devel/gcc-4.7
+	expat? ( dev-libs/expat )
+	!expat? ( dev-libs/libxml2 )"
 DEPEND="${RDEPEND}
 	sys-apps/findutils
 	sys-apps/sed"
 
-CMAKE_BUILD_DIR="${S}"/build
+BUILD_DIR="${S}"/build
 
 src_prepare() {
 	# Remove some bundled dependencies
 	edos2unix CMakeLists.txt || die
-	epatch "${FILESDIR}"/${P}-expat.patch
+	epatch "${FILESDIR}"/${PN}-0_p864-expat.patch
 	rm -R Externals/{expat,lib3ds,LibXML,pcre,zlib,zziplib} || die
 	ewarn "$(echo "Remaining bundled dependencies:";
 		find Externals -mindepth 1 -maxdepth 1 -type d | sed 's|^|- |')"
@@ -38,9 +53,6 @@ src_prepare() {
 	# Remove unused build systems
 	rm Makefile scripts/{unixbuild.sh,vcproj2cmake.rb} || die
 	find "${S}" -name SConscript -delete || die
-
-	epatch "${FILESDIR}"/${P}-gcc-4.7.patch
-	epatch "${FILESDIR}"/${P}-parallel.patch  # still not fully done
 }
 
 src_configure() {
@@ -54,10 +66,6 @@ src_configure() {
 	cmake-utils_src_configure
 }
 
-src_compile() {
-	MAKEOPTS="${MAKEOPTS} -j1" cmake-utils_src_compile  # TODO
-}
-
 src_install() {
 	cmake-utils_src_install
 	if [[ $(get_libdir) != 'lib' ]]; then
@@ -69,4 +77,10 @@ src_install() {
 			> "${D}"/etc/env.d/99opencollada || die
 
 	dobin build/bin/OpenCOLLADAValidator || die
+
+	local l
+	cd "${D}"/usr/$(get_libdir)/opencollada || die
+	for l in lib{Open,Gen}*.so; do
+		dosym opencollada/${l} /usr/$(get_libdir)/${l}
+	done
 }
