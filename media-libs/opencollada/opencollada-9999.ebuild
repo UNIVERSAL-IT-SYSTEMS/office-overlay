@@ -54,6 +54,7 @@ src_prepare() {
 	epatch "${FILESDIR}"/${PN}-0_p864-expat.patch
 
 	epatch "${FILESDIR}"/${PN}-1.2.2-soversion.patch
+	epatch "${FILESDIR}"/${PN}-1.2.2-no-undefined.patch
 
 	rm -R Externals/{expat,lib3ds,LibXML,pcre,zlib,zziplib} || die
 	ewarn "$(echo "Remaining bundled dependencies:";
