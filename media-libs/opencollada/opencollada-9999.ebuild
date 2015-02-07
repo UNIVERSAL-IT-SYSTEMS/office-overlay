@@ -55,6 +55,7 @@ src_prepare() {
 
 	epatch "${FILESDIR}"/${PN}-1.2.2-soversion.patch
 	epatch "${FILESDIR}"/${PN}-1.2.2-no-undefined.patch
+	epatch "${FILESDIR}"/${PN}-1.2.2-libdir.patch
 
 	rm -R Externals/{expat,lib3ds,LibXML,pcre,zlib,zziplib} || die
 	ewarn "$(echo "Remaining bundled dependencies:";
@@ -82,9 +83,6 @@ src_configure() {
 
 src_install() {
 	cmake-utils_src_install
-	if [[ $(get_libdir) != 'lib' ]]; then
-		mv "${D}"/usr/{lib,$(get_libdir)} || die
-	fi
 
 	dodir /etc/env.d || die
 	echo "LDPATH=/usr/$(get_libdir)/opencollada" \
