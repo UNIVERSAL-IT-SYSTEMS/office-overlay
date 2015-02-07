@@ -10,13 +10,17 @@ else
 	SCM_ECLASS="vcs-snapshot"
 fi
 
-inherit eutils multilib cmake-utils ${SCM_ECLASS}
+inherit versionator eutils multilib cmake-utils ${SCM_ECLASS}
 
 DESCRIPTION="Stream based read/write library for COLLADA files"
 HOMEPAGE="http://www.opencollada.org/"
 LICENSE="MIT"
-SLOT="0"
 IUSE="expat"
+
+# seems like the Khronos Group hasnt invented the SOVERSION yet
+MY_SOVERSION="1.2"
+
+SLOT="0"
 
 if [[ ${PV} != *9999* ]]; then
 	#
@@ -43,9 +47,14 @@ DEPEND="${RDEPEND}
 BUILD_DIR="${S}"/build
 
 src_prepare() {
+
 	# Remove some bundled dependencies
 	edos2unix CMakeLists.txt || die
+
 	epatch "${FILESDIR}"/${PN}-0_p864-expat.patch
+
+	epatch "${FILESDIR}"/${PN}-1.2.2-soversion.patch
+
 	rm -R Externals/{expat,lib3ds,LibXML,pcre,zlib,zziplib} || die
 	ewarn "$(echo "Remaining bundled dependencies:";
 		find Externals -mindepth 1 -maxdepth 1 -type d | sed 's|^|- |')"
@@ -63,6 +72,10 @@ src_configure() {
 	use expat \
 		&& mycmakeargs+=' -DUSE_EXPAT=ON -DUSE_LIBXML=OFF' \
 		|| mycmakeargs+=' -DUSE_EXPAT=OFF -DUSE_LIBXML=ON'
+
+	# Seems like the Khronos Group hasnt invented the SOVERSION yet.
+	mycmakeargs+=" -Dsoversion=${MY_SOVERSION}"
+
 	cmake-utils_src_configure
 }
 
