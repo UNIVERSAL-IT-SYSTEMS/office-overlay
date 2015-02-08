@@ -17,5 +17,5 @@ for name in $(
 		grep -v '^\./metadata' |
 		grep -v '^\./scripts' ) ;
 do
-	cp -v "$name" "${CVS_PATH}/${name#./}"
+	cp -v "${CVS_PATH}/${name#./}" "${name}"
 done
