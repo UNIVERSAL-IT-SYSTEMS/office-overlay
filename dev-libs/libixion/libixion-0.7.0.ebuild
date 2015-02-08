@@ -23,6 +23,7 @@ IUSE="static-libs"
 RDEPEND="dev-libs/boost:="
 DEPEND="${RDEPEND}
 	>=dev-util/mdds-0.10.1:=
+	<dev-util/mdds-0.12.0:=
 "
 
 src_prepare() {
