@@ -113,7 +113,7 @@ COMMON_DEPEND="
 	>=dev-cpp/clucene-2.3.3.4-r2
 	=dev-cpp/libcmis-0.5*
 	dev-db/unixODBC
-	>=dev-libs/boost-1.47:=
+	>=dev-libs/boost-1.55:=
 	dev-libs/expat
 	>=dev-libs/hyphen-2.7.1
 	>=dev-libs/icu-4.8.1.1:=
