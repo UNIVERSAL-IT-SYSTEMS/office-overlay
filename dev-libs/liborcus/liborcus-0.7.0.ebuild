@@ -22,7 +22,7 @@ IUSE="static-libs"
 
 RDEPEND="
 	>=dev-libs/boost-1.51.0:=
-	>=dev-libs/libixion-0.7.0
+	=dev-libs/libixion-0.7*
 	sys-libs/zlib:=
 "
 DEPEND="${RDEPEND}
