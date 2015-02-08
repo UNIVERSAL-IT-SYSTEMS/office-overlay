@@ -111,7 +111,7 @@ COMMON_DEPEND="
 	>=app-text/libwps-0.3.0
 	>=app-text/poppler-0.16:=[xpdf-headers(+),cxx]
 	>=dev-cpp/clucene-2.3.3.4-r2
-	dev-cpp/libcmis:0.5
+	=dev-cpp/libcmis-0.5*
 	dev-db/unixODBC
 	>=dev-libs/boost-1.47:=
 	dev-libs/expat
