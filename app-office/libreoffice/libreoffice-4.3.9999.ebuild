@@ -252,6 +252,7 @@ PATCHES=(
 	"${FILESDIR}/${PN}-4.3.4.1-boost-1.56.0.patch" # bug 522178
 	"${FILESDIR}/${PN}-4.3.5.2-system-opencollada.patch"
 	"${FILESDIR}/${PN}-4.3.5.2-detect-KDE5-fallback-to-KDE4UI.patch"
+	"${FILESDIR}/${PN}-4.3.5.2-DPI.patch"
 
 	# from master branch
 
