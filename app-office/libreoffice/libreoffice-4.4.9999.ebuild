@@ -243,6 +243,9 @@ DEPEND="${COMMON_DEPEND}
 PATCHES=(
 	# not upstreamable stuff
 	"${FILESDIR}/${PN}-4.4-system-pyuno.patch"
+
+	# from master branch
+	"${FILESDIR}/${PN}-4.4.0.3-telepathy-build-fix.patch"
 )
 
 REQUIRED_USE="
