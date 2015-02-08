@@ -12,7 +12,9 @@ SRC_URI="http://kohei.us/files/${PN}/src/${P/-/_}.tar.bz2"
 
 LICENSE="MIT"
 SLOT="0/${PV}"
-KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
+#KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
+# temporarily
+KEYWORDS=""
 IUSE=""
 
 DEPEND="dev-libs/boost:="
