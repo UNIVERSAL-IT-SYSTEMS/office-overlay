@@ -22,9 +22,11 @@ IUSE="static-libs"
 
 RDEPEND="
 	>=dev-libs/boost-1.51.0:=
-	>=dev-libs/libixion-0.9.0:=
+	>=dev-libs/libixion-9999:=
 	sys-libs/zlib:=
 "
+# this will depend on libixion-0.9 at some point...
+
 DEPEND="${RDEPEND}
 	>=dev-util/mdds-0.7.1
 "
