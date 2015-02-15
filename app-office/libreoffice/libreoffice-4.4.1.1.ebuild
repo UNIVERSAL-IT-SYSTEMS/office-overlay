@@ -131,7 +131,7 @@ COMMON_DEPEND="
 	>=media-libs/glew-1.10
 	>=media-libs/harfbuzz-0.9.18:=[icu(+)]
 	media-libs/lcms:2
-	>=media-libs/libpng-1.4
+	>=media-libs/libpng-1.4:0=
 	>=media-libs/libcdr-0.1.0
 	>=media-libs/libfreehand-0.1.0
 	media-libs/libpagemaker
