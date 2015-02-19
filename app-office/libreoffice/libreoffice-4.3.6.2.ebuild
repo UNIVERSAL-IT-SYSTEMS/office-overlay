@@ -534,6 +534,11 @@ src_configure() {
 }
 
 src_compile() {
+	# more and more LO stuff tries to use OpenGL, including tests during build
+	# bug 501508, bug 540624 and probably more
+	addpredict /dev/dri
+	addpredict /dev/nvidiactl
+
 	# hack for offlinehelp, this needs fixing upstream at some point
 	# it is broken because we send --without-help
 	# https://bugs.freedesktop.org/show_bug.cgi?id=46506
