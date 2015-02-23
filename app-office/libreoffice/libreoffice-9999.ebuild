@@ -188,6 +188,7 @@ RDEPEND="${COMMON_DEPEND}
 	!app-office/libreoffice-bin-debug
 	!<app-office/openoffice-bin-3.4.0-r1
 	!app-office/openoffice
+	kde? ( || ( $(add_kdeapps_dep kioclient) $(add_kdebase_dep kioclient) ) )
 	media-fonts/libertine
 	media-fonts/liberation-fonts
 	media-fonts/urw-fonts
