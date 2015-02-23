@@ -245,6 +245,9 @@ PATCHES=(
 	# not upstreamable stuff
 	"${FILESDIR}/${PN}-4.4-system-pyuno.patch"
 
+	# from 4.4 branch
+	"${FILESDIR}/${PN}-4.4.0.3-gcc-4.9-Os-link-failure.patch" # bug 538348
+
 	# from master branch
 	"${FILESDIR}/${PN}-4.4.0.3-telepathy-build-fix.patch"
 )
