@@ -189,6 +189,7 @@ RDEPEND="${COMMON_DEPEND}
 	!app-office/libreoffice-bin-debug
 	!<app-office/openoffice-bin-3.4.0-r1
 	!app-office/openoffice
+	kde? ( || ( $(add_kdeapps_dep kioclient) $(add_kdebase_dep kioclient) ) )
 	media-fonts/libertine
 	media-fonts/liberation-fonts
 	media-fonts/urw-fonts
@@ -250,6 +251,8 @@ PATCHES=(
 
 	# from master branch
 	"${FILESDIR}/${PN}-4.4.0.3-telepathy-build-fix.patch"
+	"${FILESDIR}/${PN}-4.4.1.2-add-kde4-open-url-script.patch"
+	"${FILESDIR}/${PN}-4.4.1.2-improve-KDE4FilePicker.patch"
 )
 
 REQUIRED_USE="
