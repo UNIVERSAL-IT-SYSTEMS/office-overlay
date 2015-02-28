@@ -255,8 +255,6 @@ PATCHES=(
 	"${FILESDIR}/${PN}-4.3.5.2-DPI.patch"
 
 	# from master branch
-
-	# submitted
 	"${FILESDIR}/${PN}-4.3.5.2-remove-bashisms.patch" # bug 525454
 )
 
