@@ -175,7 +175,7 @@ COMMON_DEPEND="
 		dev-java/tomcat-servlet-api:3.0
 	)
 	mysql? ( >=dev-db/mysql-connector-c++-1.1.0 )
-	postgres? ( >=dev-db/postgresql-9.0[kerberos] )
+	postgres? ( >=dev-db/postgresql-9.0:*[kerberos] )
 	telepathy? (
 		dev-libs/glib:2
 		>=net-libs/telepathy-glib-0.18.0
