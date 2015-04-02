@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-office/libreoffice/libreoffice-4.4.9999.ebuild,v 1.9 2015/02/28 12:15:26 dilfridge Exp $
+# $Header: $
 
 EAPI=5
 
@@ -91,7 +91,6 @@ LICENSE="|| ( LGPL-3 MPL-1.1 )"
 SLOT="0"
 [[ ${PV} == *9999* ]] || \
 KEYWORDS="~amd64 ~arm ~x86 ~amd64-linux ~x86-linux"
-KEYWORDS=""
 
 COMMON_DEPEND="
 	${PYTHON_DEPS}
