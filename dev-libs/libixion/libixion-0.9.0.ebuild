@@ -20,6 +20,7 @@ LICENSE="MIT"
 SLOT="0"
 [[ ${PV} == 9999 ]] || \
 KEYWORDS="~amd64 ~arm ~ppc ~x86"
+KEYWORDS=""
 IUSE="static-libs"
 
 RDEPEND="${PYTHON_DEPS}
