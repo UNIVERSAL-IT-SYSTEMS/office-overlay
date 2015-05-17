@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-text/writerperfect/writerperfect-0.9.2.ebuild,v 1.1 2015/03/08 15:42:11 dilfridge Exp $
+# $Header: $
 
 EAPI=5
 
@@ -13,7 +13,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86 ~x86-linux ~x86-solaris"
 IUSE="abiword +cdr debug ebook freehand gsf keynote +mspub +mwaw pagemaker +visio +wpd +wpg +wps"
 
-# FIXME: libepubgen
+# FIXME: libepubgen, libeot, librvngabw
 RDEPEND="
 	=app-text/libodfgen-0.1*
 	>=dev-libs/librevenge-0.0.1
@@ -29,7 +29,7 @@ RDEPEND="
 	visio? ( =media-libs/libvisio-0.1* )
 	wpd? ( app-text/libwpd:0.10 )
 	wpg? ( =app-text/libwpg-0.3* )
-	wps? ( =app-text/libwps-0.3* )
+	wps? ( =app-text/libwps-0.4* )
 "
 DEPEND="${RDEPEND}
 	virtual/pkgconfig
@@ -41,7 +41,7 @@ src_configure() {
 		$(use_enable debug) \
 		$(use_with abiword libabw) \
 		$(use_with cdr libcdr) \
-		$(use_with ebook libe-book) \
+		$(use_with ebook libebook) \
 		$(use_with freehand libfreehand) \
 		$(use_with gsf libgsf) \
 		$(use_with keynote libetonyek) \
