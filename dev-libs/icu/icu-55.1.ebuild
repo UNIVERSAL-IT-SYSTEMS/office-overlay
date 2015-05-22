@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/dev-libs/icu/icu-54.1-r1.ebuild,v 1.10 2015/02/24 10:56:26 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/dev-libs/icu/icu-55.1.ebuild,v 1.1 2015/05/17 21:56:09 dilfridge Exp $
 
 EAPI=5
 
