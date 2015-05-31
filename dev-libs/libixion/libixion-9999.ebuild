@@ -33,6 +33,7 @@ DEPEND="${RDEPEND}
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 src_prepare() {
+	epatch "${FILESDIR}/${PN}-0.9.1-typo.patch"
 	epatch "${FILESDIR}/${PN}-9999-python-optional.patch"
 	eautoreconf
 }
