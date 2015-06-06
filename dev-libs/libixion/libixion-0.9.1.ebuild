@@ -30,7 +30,7 @@ DEPEND="${RDEPEND}
 	>=dev-util/mdds-0.12.0:=
 "
 
-REQUIRED_USE="${PYTHON_REQUIRED_USE}"
+REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
 
 src_prepare() {
 	epatch "${FILESDIR}/${PN}-0.9.1-typo.patch"

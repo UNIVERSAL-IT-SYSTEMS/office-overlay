@@ -9,7 +9,7 @@ EGIT_REPO_URI="https://gitlab.com/ixion/ixion.git"
 PYTHON_COMPAT=( python{3_3,3_4} )
 
 [[ ${PV} == 9999 ]] && GITECLASS="git-r3"
-inherit autotools eutils python-r1 ${GITECLASS}
+inherit autotools eutils python-single-r1 ${GITECLASS}
 unset GITECLASS
 
 DESCRIPTION="General purpose formula parser & interpreter"
@@ -30,7 +30,7 @@ DEPEND="${RDEPEND}
 	>=dev-util/mdds-0.12.0:=
 "
 
-REQUIRED_USE="${PYTHON_REQUIRED_USE}"
+REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
 
 src_prepare() {
 	epatch "${FILESDIR}/${PN}-0.9.1-typo.patch"
