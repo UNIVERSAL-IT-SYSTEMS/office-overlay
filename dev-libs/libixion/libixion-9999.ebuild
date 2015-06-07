@@ -8,8 +8,8 @@ EGIT_REPO_URI="https://gitlab.com/ixion/ixion.git"
 
 PYTHON_COMPAT=( python{3_3,3_4} )
 
-[[ ${PV} == 9999 ]] && GITECLASS="git-r3"
-inherit autotools eutils python-single-r1 ${GITECLASS}
+[[ ${PV} == 9999 ]] && GITECLASS="git-r3 autotools"
+inherit eutils python-single-r1 ${GITECLASS}
 unset GITECLASS
 
 DESCRIPTION="General purpose formula parser & interpreter"
@@ -33,9 +33,7 @@ DEPEND="${RDEPEND}
 REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
 
 src_prepare() {
-	epatch "${FILESDIR}/${PN}-0.9.1-typo.patch"
-	epatch "${FILESDIR}/${PN}-9999-python-optional.patch"
-	eautoreconf
+	[[ ${PV} == 9999 ]] && eautoreconf
 }
 
 src_configure() {
