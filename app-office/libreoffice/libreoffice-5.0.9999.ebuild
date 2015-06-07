@@ -192,7 +192,7 @@ RDEPEND="${COMMON_DEPEND}
 	media-fonts/liberation-fonts
 	media-fonts/urw-fonts
 	java? ( >=virtual/jre-1.6 )
-	kde? ( || ( $(add_kdeapps_dep kioclient) $(add_kdebase_dep kioclient) ) )
+	kde? ( $(add_kdeapps_dep kioclient) )
 	vlc? ( media-video/vlc )
 "
 
