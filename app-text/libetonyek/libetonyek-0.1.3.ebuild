@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-text/libetonyek/libetonyek-0.1.2.ebuild,v 1.1 2015/05/22 20:44:57 dilfridge Exp $
+# $Header: $
 
 EAPI=5
 
@@ -26,7 +26,7 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}
 	>=dev-libs/boost-1.46
-	dev-util/gperf
+	>=dev-util/mdds-0.12.1
 	media-libs/glm
 	sys-devel/libtool
 	virtual/pkgconfig
