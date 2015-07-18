@@ -19,7 +19,6 @@ KEYWORDS="~amd64 ~arm ~x86"
 IUSE="doc static-libs test"
 
 RDEPEND="
-	dev-libs/boost:=
 	dev-libs/librevenge
 	dev-libs/libxml2
 	sys-libs/zlib
