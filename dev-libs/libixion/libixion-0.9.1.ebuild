@@ -6,10 +6,10 @@ EAPI=5
 
 EGIT_REPO_URI="https://gitlab.com/ixion/ixion.git"
 
-PYTHON_COMPAT=( python{3_3,3_4} )
+PYTHON_COMPAT=( python2_7 )
 
-[[ ${PV} == 9999 ]] && GITECLASS="git-r3 autotools"
-inherit eutils python-single-r1 ${GITECLASS}
+[[ ${PV} == 9999 ]] && GITECLASS="git-r3"
+inherit autotools eutils python-single-r1 ${GITECLASS}
 unset GITECLASS
 
 DESCRIPTION="General purpose formula parser & interpreter"
@@ -17,7 +17,7 @@ HOMEPAGE="https://gitlab.com/ixion/ixion"
 [[ ${PV} == 9999 ]] || SRC_URI="http://kohei.us/files/ixion/src/${P}.tar.xz"
 
 LICENSE="MIT"
-SLOT="0/0.12"
+SLOT="0/0.10"
 [[ ${PV} == 9999 ]] || \
 KEYWORDS="~amd64 ~arm ~ppc ~x86"
 IUSE="python static-libs"
@@ -37,7 +37,9 @@ pkg_setup() {
 }
 
 src_prepare() {
-	[[ ${PV} == 9999 ]] && eautoreconf
+	epatch "${FILESDIR}/${PN}-0.9.1-typo.patch"
+	epatch "${FILESDIR}/${PN}-0.9.1-python-optional.patch"
+	eautoreconf
 }
 
 src_configure() {
