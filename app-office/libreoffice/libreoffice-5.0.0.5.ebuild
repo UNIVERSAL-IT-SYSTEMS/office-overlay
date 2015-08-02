@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-office/libreoffice/libreoffice-5.0.0.4.ebuild,v 1.1 2015/07/25 21:28:22 dilfridge Exp $
+# $Header: $
 
 EAPI=5
 
@@ -246,6 +246,9 @@ DEPEND="${COMMON_DEPEND}
 PATCHES=(
 	# not upstreamable stuff
 	"${FILESDIR}/${PN}-4.4-system-pyuno.patch"
+
+	# from master branch
+	"${FILESDIR}/${PN}-4.4.5.2-fix-KDE4-listbox-regression.patch"
 )
 
 REQUIRED_USE="
