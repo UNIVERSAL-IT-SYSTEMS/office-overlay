@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-text/libodfgen/libodfgen-0.1.4.ebuild,v 1.3 2015/07/22 19:33:33 ago Exp $
+# $Header: /var/cvsroot/gentoo-x86/app-text/libodfgen/libodfgen-9999.ebuild,v 1.1 2015/08/04 20:27:19 dilfridge Exp $
 
 EAPI=5
 
