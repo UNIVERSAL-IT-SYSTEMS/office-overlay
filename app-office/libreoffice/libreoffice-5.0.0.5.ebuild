@@ -1,6 +1,6 @@
 # Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-office/libreoffice/libreoffice-5.0.0.5.ebuild,v 1.1 2015/08/04 20:49:29 dilfridge Exp $
+# $Header: $
 
 EAPI=5
 
@@ -198,8 +198,7 @@ RDEPEND="${COMMON_DEPEND}
 "
 
 if [[ ${PV} != *9999* ]]; then
-	#PDEPEND="=app-office/libreoffice-l10n-$(get_version_component_range 1-2)*"
-	PDEPEND=">=app-office/libreoffice-l10n-4.4"
+	PDEPEND="=app-office/libreoffice-l10n-$(get_version_component_range 1-2)*"
 else
 	# Translations are not reliable on live ebuilds
 	# rather force people to use english only.
