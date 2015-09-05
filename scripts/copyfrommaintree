@@ -2,7 +2,7 @@
 
 [[ -f ${HOME}/.officeoverlayrc ]] && source ${HOME}/.officeoverlayrc
 
-CVS_PATH="${CVS_PATH:-${HOME}/Gentoo/gentoo-x86}"
+CVS_PATH="${CVS_PATH:-${HOME}/Gentoo/gentoo}"
 OVERLAY_PATH="${OVERLAY_PATH:-${HOME}/Gentoo/office}"
 
 echo cd "${OVERLAY_PATH}"
